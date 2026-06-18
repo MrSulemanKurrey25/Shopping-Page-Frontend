@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f6f8fa;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #121212;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8; 
+}
+
+.login-btn:hover {
+    background-color: #7dd3fc;
+}
+
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+.main-wrapper {
+    flex: 1; 
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e1e4e6;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; 
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.card h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: auto; 
+}
+
+footer {
+    background-color: #121212;
+    color: #94a3b8;
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 20px;
+    border-top: 1px solid #1e293b;
+}
+
+footer p:first-child {
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+@media (max-width: 1024px) {
+    .main-wrapper {
+        padding: 24px 16px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+    .card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 68px; 
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background-color: #121212;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 48px;
+        gap: 40px;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-links a {
+        font-size: 20px; 
+    }
+
+    .login-btn {
+        width: 80%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        left: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .card img {
+        height: 140px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .card h5 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
